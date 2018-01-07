@@ -21,18 +21,12 @@ grad = zeros(size(theta));
 
 h = X*theta;
 cost = sum((h - y).^2)/(2*m);
-
 reg = lambda*(sum(theta(2:end).^2))/(2*m);
 
 J = cost+reg;
 
-
-
-
-
-
-
-
+grad(1) = sum((h -y) .* X(:,1))/m;
+grad(2:end) = (X(:,2:end)'*(h-y) + lambda*theta(2:end))/m;
 
 
 

@@ -39,14 +39,13 @@ error_val = zeros(length(lambda_vec), 1);
 %
 %
 
-
-
-
-
-
-
-
-
+for i = 1:length(lambda_vec)
+  error_train_temp = zeros(length(X), 1);
+  error_val_temp = zeros(length(X), 1);
+  [error_train_temp, error_val_temp] = learningCurve(X, y, Xval, yval, lambda_vec(i));
+  error_train(i) = error_train_temp(end);
+  error_val(i) = error_val_temp(end);
+end 
 
 % =========================================================================
 
